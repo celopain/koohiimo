@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KooHiiMo コーヒーモ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        const form = document.getElementById("orderForm");
+
+function injectCartIntoForm() {
+  // Remove old injected inputs (prevents duplicates)
+  document.querySelectorAll(".cart-input").forEach(el => el.remove());
+
+  cartItems.forEach((item, index) => {
+    Object.entries(item).forEach(([key, value]) => {
+      const input = document.createElement("input");
+      input.type = "hidden";
+      input.name = `item_${index}_${key}`;
+      input.value = value;
+      input.classList.add("cart-input");
+      form.appendChild(input);
+    });
+  });
+}
+
+    </script>
+</head>
+<body>
+<header>
+    <a href="#" class="logo"><i class="fa-solid fa-mug-saucer"></i> KooHiiMo コーヒーモ</a>
+    
+        <nav class="navbar">
+             <a class="active" href="#home">home</a>
+             <a href="#menu">   menu</a>
+             <a href="#about">about us</a>
+        </nav>
+
+        <div class="icons">
+            <i class="fas fa-bars" id="menu-bars"></i>
+            <!-- <a href="wishlist.html" class="fas fa-heart"></a> -->
+            <a href="cart.html" class="fas fa-shopping-cart"></a>
+        </div>
+
+</header>
+
+<!-- Pop-up Notification -->
+<div class="popup" id="popup">
+    <p>Item added to cart!</p>
+</div>
+
+
+<form action ="" id="search-form">
+     <input type="search"  placeholder="search" name="" id="search-box">
+     <label for="search-box" class="fas fa-search"></label>
+     <i class="fas fa-times" id="close"></i>
+ </form>
+     
+
+
+<section class="home" id="home">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+<div class="abg" style="background-color: gainsboro; border-radius: 10px;">
+    <h1 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Welcome to KooHiiMo コーヒーモ</h1>
+    <p class="abg">koohiimo is a coffee shop in which we implement the use of technology as to help customers easily access
+        our products, and our products will provide them the energy to do their works.
+    </p>
+</div>
+    <div class="home-slider">
+
+        <div class="wrapper">
+
+            <div class="slide">
+                <div class="content">
+                    <span>our special drink</span>
+                    <h3 class="drink">matcha latte</h3>
+                    <p>performativity! matcha is good for antioxidants that gives you calm and
+                        sustained energy, it's the unique flavor that
+                        makes it stand out, try it!
+                    </p>
+                    <a class="btn" onclick="addToCart('matcha latte', 189.00)">Add to Cart</a>
+                </div>
+                <div class="image">
+                    <img class="img" style="border-radius: 20px;" src="images/matcha_latte.png" alt="Coffee Pic">
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class ="content">
+                    <span>Recommendations</span>
+                    <h3 class="drink">Caramel Macchiato</h3>
+                    <p>classic choice, sweet, and refreshing coffee that will provide you the sugar to
+                        give energy for your works.
+                    </p>
+                         <a class="btn" onclick="addToCart('caramel macchiato', 179.00)">Add to Cart</a>
+                </div> 
+                <div class="image">
+                    <img class="img" style="border-radius: 20px; float: left;"
+                     src="images/caramel_macchiato.png" alt="BASTA PICTURE NG KAPE DITO">
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="content">
+                    <span>go regular</span>
+                    <h3 class="drink">simple brew</h3>
+                    <p>going for a basic, go-to, and easy order? maybe it's just one click away to simplicity
+                        at it's peak!
+                    </p>
+                        <a class="btn" onclick="addToCart('simple brew', 99.00)">Add to Cart</a>
+                </div>
+                <div class="image">
+                    <img class="img" style="border-radius: 20px;" src="images/placeholder.png" alt="picture dapat ng kape">
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</section>
+
+<!-- menu -->
+<section class="menu" id="menu">
+
+    <h3 class="sub-heading">our menu</h3>
+    <h3 class="heading">Coffees</h3>
+
+    <div class="box-container">
+
+        <div class="box">
+            <img style="border-radius: 20px;" src="images/caramel_macchiato.png" alt="">
+            <h3>Caramel Macchiato</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <span>₱179.00</span>
+            
+            <a class="btn" onclick="addToCart('caramel macchiato', 99.00)">Add to Cart</a>
+        </div>
+
+        <div class="box">
+            <img style="border-radius: 20px;" src="images/simple_brew.png" alt="">
+            <h3>Simple Brew</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <span>₱99.00</span>
+            <a class="btn" onclick="addToCart('simple brew', 99.00)">Add to Cart</a>
+
+        </div>
+
+        <div class="box">
+            <img style="border-radius: 20px;" src="images/strawberry_matcha.png" alt="">
+            <h3>Strawberry Matcha</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <span>₱189.00</span>
+            <a class="btn" onclick="addToCart('strawberry matcha', 189.00)">Add to Cart</a>
+
+        </div>
+
+        <div class="box">
+            <img style="border-radius: 20px;" src="images/vanilla_sweet_cream_cold_brew.png" alt="">
+            <h3>vanilla sweetcream cold brew</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <span>₱189.00</span> 
+            <a class="btn" onclick="addToCart('vanilla sweetcream coldbrew', 189.00)">Add to Cart</a>
+         </div>
+
+         <div class="box">
+            <img style="border-radius: 20px;" src="images/placeholder.png" alt="">
+            <h3>placeholder</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <span>₱65.00</span> 
+            <a class="btn" onclick="addToCart('placeholder', 65.00)">Add to Cart</a>
+         </div>
+
+         <div class="box">
+            <img style="border-radius: 20px;" src="images/placeholder.png" alt="">
+            <h3>placeholder</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <span>₱50.00</span> 
+            <a class="btn" onclick="addToCart('placeholder', 50.00)">Add to Cart</a>
+         </div>
+    </div>
+</div>
+<br />
+<br />
+
+<h3 class="heading">Sides</h3>
+
+    <div class="box-container">
+
+        <div class="box">
+            <img style="border-radius: 20px;" src="images/wafers.png" alt="">
+            <h3>wafers</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <span>₱15.00</span>
+            <a class="btn" onclick="addToCart('wafers', 15.00)">Add to Cart</a>
+        </div>
+
+        <div class="box">
+            <img style="border-radius: 20px;" src="images/chocolate_chip_cookies.png" alt="">
+            <h3>chocolate chip cookies</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <span>₱25.00</span>
+            <a class="btn" onclick="addToCart('chocolate chip cookies', 25.00)">Add to Cart</a>
+        </div>
+
+        <div class="box">
+            <img style="border-radius: 20px;" src="images/creamfilled_breadrolls.png" alt="">
+            <h3>cream-filled breadrolls</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <span>₱35.00</span>
+            <a class="btn" onclick="addToCart('cream-filled breadrolls', 35.00)">Add to Cart</a>
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- menu section ends  -->
+
+
+<section class="about" id="about">
+    <h3 class="sub-heading">about us</h3>
+    <h1 class="heading">why choose us?</h1>
+
+    <div class="row">
+
+        <div class="image">
+            <img src="images/logo.PNG" alt="logo here">
+        </div>
+
+        <div class="content">
+            <h3>Welcome to our
+                 KooHiiMo コーヒーモ</h3>
+            <p>
+                At KooHiiMo コーヒーモ, we are dedicated to serving you the finest quality of coffees
+                that not only satisfy your thirst and desire for energy but also leave a lasting impression. We are more than just a coffee shop; 
+                we are your home away from home, ensuring you receive delicious, wholesome coffees every time.
+            </p>
+            <p>
+                Quality is at the heart of everything we do. 
+                From the freshest ingredients to the skillful hands of our baristas, 
+                we take pride in delivering coffees that are a cut above the rest. 
+                Each coffee/drink is prepared with love and meticulous attention to detail, 
+                ensuring a delightful working experience.
+            </p>
+            <div class="icons-container">
+                <div class="icons">
+                    <i class="fas fa-shipping-fast"></i>
+                    <span>Delivery 6                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        AM - 6PM</span>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</section>
+
+<!-- footer -->
+
+<section class="footer">
+    <div class="box-container">
+        
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="#home">Home</a>
+            <a href="#menu">Menu</a>
+            <a href="#about">About us</a>
+        </div>
+        
+    <div class="credit">2025-2026 by<span> Group 1 Net Prog </span> </div>
+</section>
+
+<div class="loader-container">
+    <img src="" alt="">
+</div>
+    <div style="font-size: 15px;">
+        <marquee>
+            members:
+            benedicto, marcelo luis - del pilar   |
+            parana, jacinth micah - del pilar   |
+            amagan, jolan micah - del pilar   |
+            arado, andrae - del pilar   |
+            velez, yoseph zahb - aguinaldo   |
+            rabasto, marlon - aguinaldo   |
+            sucgang, angelo james - aguinaldo   |
+            villanuac, rupert - aguinaldo   |
+        </marquee>
+    </div>
+    <div style="color: blueviolet; font-size: 20px;">
+        <marquee>
+            website coded by:
+            benedicto, marcelo luis - del pilar
+        </marquee>
+    </div>
+
+
+
+<script src="script.js"></script>
+</body>
+</html>

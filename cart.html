@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        .info-box {
+            padding: 10px;
+            background-color: #eef;
+            display: inline-block;
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo"><i class="fa-solid fa-mug-saucer"></i> KooHiiMo コーヒーモ</a>
+        <div class="icons">
+            <a href="index.html" class="fas fa-home"></a>
+        </div>
+
+    </header>
+
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <section  class="cart" id="cart">
+        <h1 class="heading">Your Cart</h1>
+        <h2 style="text-align: center; opacity: 50%;">Please recheck the quantity before proceeding to order</h2>
+      
+        <div id="cart-items"></div> <!-- dynamic cart items will appear here -->
+      
+        <form id="orderForm" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="7a97e25b-8274-4736-8685-061a74ad192b">
+          <input type="hidden" name="order" id="orderField">
+          <button class="button-container btn" style="display: flex;" type="submit"
+           id="order-now-button" onclick="copyValueAndSubmit">Order Now</button>
+        </form>
+      </section>
+      
+
+    <div class="loader-container">
+        <img src="" alt="">
+    </div>
+
+<script src="cart.js"></script>
+
+
+
+<!-- Element we want to get value from 
+<div id="sourceElement" class="info-box">This is the text to send</div>-->
+
+<!-- Form
+<form id="myForm" action="https://api.web3forms.com/submit" method="POST">
+   
+    <input type="hidden" name="access_key" value="e3d8af51-54c6-4b66-a3cd-b0080808644e">
+    <input type="hidden" id="hiddenField" name="Orders">
+    <button type="button" onclick="copyValueAndSubmit()">Send Data</button>
+</form>
+-->
+
+<!-- the access key above is updated to the newer accesskey
+ 
+refeshes every month-->
+
+
+</body>
+</html>
