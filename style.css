@@ -395,10 +395,6 @@ header .icons #menu-bars{
 
 
 
-
-
-
-
 .footer .box-container{
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(25rem,1fr));
@@ -581,20 +577,6 @@ header .icons #menu-bars{
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @media(max-width:991px){
     html{
         font-size: 55%;
@@ -638,7 +620,6 @@ header .icons #menu-bars{
 
     
 } 
-
 @media(max-width:991px){
     html{
         font-size: 50%;
@@ -650,7 +631,6 @@ header .icons #menu-bars{
 
     }
 }
-
 @media(max-width:450px){
     html{
         font-size: 20%;
@@ -659,7 +639,6 @@ header .icons #menu-bars{
         width: 100%;
     }
 }
-
 .drink:hover{
     color: blueviolet;
     cursor: pointer;
@@ -670,7 +649,6 @@ header .icons #menu-bars{
     cursor: pointer;
     padding:.8rem 3rem;
 }
-
 .img:hover{
     cursor: pointer;
     margin-top: 1rem;
@@ -687,7 +665,6 @@ header .icons #menu-bars{
     display: inline-block;
     padding: 4rem;
 }
-
 h1{
     flex:1 1 45rem;
     text-align: center;
